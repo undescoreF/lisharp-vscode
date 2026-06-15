@@ -1,0 +1,188 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "lisharp",
+  "scopeName": "source.lisharp",
+  "fileTypes": ["lisharp"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#string" },
+    { "include": "#special-forms" },
+    { "include": "#commands-builtin" },
+    { "include": "#commands-arith" },
+    { "include": "#commands-cmp" },
+    { "include": "#commands-logic" },
+    { "include": "#commands-math" },
+    { "include": "#commands-struct" },
+    { "include": "#commands-io" },
+    { "include": "#commands-control" },
+    { "include": "#commands-bit" },
+    { "include": "#selection-steps" },
+    { "include": "#constants" },
+    { "include": "#numbers" },
+    { "include": "#list" }
+  ],
+  "repository": {
+
+    "comment": {
+      "name": "comment.line.semicolon.lisharp",
+      "match": ";.*$"
+    },
+
+    "string": {
+      "name": "string.quoted.double.lisharp",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.lisharp",
+          "match": "\\\\[ntr\"\\\\]"
+        }
+      ]
+    },
+
+    "special-forms": {
+      "patterns": [
+        {
+          "name": "keyword.control.lisharp",
+          "match": "(?<=\\()\\b(do|ctx|ref|key|cmd|overload|sel|label)\\b"
+        }
+      ]
+    },
+
+    "commands-builtin": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.lisharp",
+          "match": "(?<=\\()\\b(arith|cmp|logic|bit|math|struct|control|io|custom)\\b"
+        }
+      ]
+    },
+
+    "commands-arith": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arithmetic.lisharp",
+          "match": "(?<=\\()(\\+|-|\\*|/|%|\\^)(?=[\\s\\(])"
+        }
+      ]
+    },
+
+    "commands-cmp": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.lisharp",
+          "match": "(?<=\\()(<=|>=|!=|<|>|=)(?=[\\s\\(])"
+        }
+      ]
+    },
+
+    "commands-logic": {
+      "patterns": [
+        {
+          "name": "keyword.operator.logical.lisharp",
+          "match": "(?<=\\()\\b(and|or|xor|not)\\b"
+        }
+      ]
+    },
+
+    "commands-bit": {
+      "patterns": [
+        {
+          "name": "keyword.operator.bitwise.lisharp",
+          "match": "(?<=\\()\\b(bit-and|bit-or|bit-xor|bit-not)\\b"
+        }
+      ]
+    },
+
+    "commands-math": {
+      "patterns": [
+        {
+          "name": "support.function.math.lisharp",
+          "match": "(?<=\\()\\b(sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh|exp|pow|ln|log10|log2|sqrt|abs|floor|ceil|round)\\b"
+        }
+      ]
+    },
+
+    "commands-struct": {
+      "patterns": [
+        {
+          "name": "support.function.structural.lisharp",
+          "match": "(?<=\\()\\b(length|key-of|index-of|exists\\?|type-of|insert|delete|assign-copy|assign-move|create)\\b"
+        }
+      ]
+    },
+
+    "commands-io": {
+      "patterns": [
+        {
+          "name": "support.function.io.lisharp",
+          "match": "(?<=\\()\\b(print|println|input)\\b"
+        }
+      ]
+    },
+
+    "commands-control": {
+      "patterns": [
+        {
+          "name": "keyword.control.flow.lisharp",
+          "match": "(?<=\\()\\b(if|jump|eval)\\b"
+        }
+      ]
+    },
+
+    "selection-steps": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.selection.lisharp",
+          "match": "(?<=\\()\\b(i|up|var)\\b"
+        }
+      ]
+    },
+
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.lisharp",
+          "match": "\\b(true|false|nil)\\b"
+        },
+        {
+          "name": "constant.language.cpp.lisharp",
+          "match": "\\bC\\+\\+\\b"
+        }
+      ]
+    },
+
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.lisharp",
+          "match": "-?\\b[0-9]+(\\.[0-9]+)?\\b"
+        }
+      ]
+    },
+
+    "list": {
+      "name": "meta.expression.lisharp",
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        { "include": "#special-forms" },
+        { "include": "#commands-builtin" },
+        { "include": "#commands-arith" },
+        { "include": "#commands-cmp" },
+        { "include": "#commands-logic" },
+        { "include": "#commands-math" },
+        { "include": "#commands-struct" },
+        { "include": "#commands-io" },
+        { "include": "#commands-control" },
+        { "include": "#commands-bit" },
+        { "include": "#selection-steps" },
+        { "include": "#constants" },
+        { "include": "#numbers" },
+        { "include": "#list" }
+      ]
+    }
+  }
+}

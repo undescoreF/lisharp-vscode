@@ -1,0 +1,102 @@
+{
+  "name": "lisharp Dark",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1a1b26",
+    "editor.foreground": "#c0caf5",
+    "editorLineNumber.foreground": "#3b4261",
+    "editorLineNumber.activeForeground": "#737aa2",
+    "editor.selectionBackground": "#283457",
+    "editor.lineHighlightBackground": "#1f2132",
+    "editorCursor.foreground": "#c0caf5",
+    "editorBracketMatch.background": "#2e3c64",
+    "editorBracketMatch.border": "#7aa2f7"
+  },
+  "tokenColors": [
+    {
+      "name": "lisharp - Comments",
+      "scope": "comment.line.semicolon.lisharp",
+      "settings": { "foreground": "#565f89", "fontStyle": "italic" }
+    },
+    {
+      "name": "lisharp - Strings",
+      "scope": "string.quoted.double.lisharp",
+      "settings": { "foreground": "#9ece6a" }
+    },
+    {
+      "name": "lisharp - Escape sequences",
+      "scope": "constant.character.escape.lisharp",
+      "settings": { "foreground": "#73daca" }
+    },
+    {
+      "name": "lisharp - Special forms (do, ctx, key, ref, cmd, overload)",
+      "scope": "keyword.control.lisharp",
+      "settings": { "foreground": "#bb9af7", "fontStyle": "bold" }
+    },
+    {
+      "name": "lisharp - Control flow (if, jump, eval)",
+      "scope": "keyword.control.flow.lisharp",
+      "settings": { "foreground": "#f7768e", "fontStyle": "bold" }
+    },
+    {
+      "name": "lisharp - Arithmetic operators",
+      "scope": "keyword.operator.arithmetic.lisharp",
+      "settings": { "foreground": "#7dcfff" }
+    },
+    {
+      "name": "lisharp - Comparison operators",
+      "scope": "keyword.operator.comparison.lisharp",
+      "settings": { "foreground": "#7dcfff" }
+    },
+    {
+      "name": "lisharp - Logical operators",
+      "scope": "keyword.operator.logical.lisharp",
+      "settings": { "foreground": "#7dcfff" }
+    },
+    {
+      "name": "lisharp - Bitwise operators",
+      "scope": "keyword.operator.bitwise.lisharp",
+      "settings": { "foreground": "#7dcfff" }
+    },
+    {
+      "name": "lisharp - Math functions",
+      "scope": "support.function.math.lisharp",
+      "settings": { "foreground": "#2ac3de" }
+    },
+    {
+      "name": "lisharp - Structural functions",
+      "scope": "support.function.structural.lisharp",
+      "settings": { "foreground": "#2ac3de" }
+    },
+    {
+      "name": "lisharp - IO functions",
+      "scope": "support.function.io.lisharp",
+      "settings": { "foreground": "#ff9e64", "fontStyle": "bold" }
+    },
+    {
+      "name": "lisharp - Builtin categories",
+      "scope": "support.function.builtin.lisharp",
+      "settings": { "foreground": "#565f89", "fontStyle": "italic" }
+    },
+    {
+      "name": "lisharp - Constants (true, false, nil)",
+      "scope": "constant.language.lisharp",
+      "settings": { "foreground": "#ff9e64" }
+    },
+    {
+      "name": "lisharp - C++ keyword",
+      "scope": "constant.language.cpp.lisharp",
+      "settings": { "foreground": "#e0af68", "fontStyle": "bold" }
+    },
+    {
+      "name": "lisharp - Numbers",
+      "scope": "constant.numeric.lisharp",
+      "settings": { "foreground": "#ff9e64" }
+    },
+    {
+      "name": "lisharp - Selection steps (i, up, var)",
+      "scope": "entity.name.tag.selection.lisharp",
+      "settings": { "foreground": "#73daca" }
+    }
+  ]
+}

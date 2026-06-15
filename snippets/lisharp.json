@@ -1,0 +1,166 @@
+{
+  "do block": {
+    "prefix": "do",
+    "body": [
+      "(do",
+      "\t$0",
+      ")"
+    ],
+    "description": "Sequential block"
+  },
+
+  "key set": {
+    "prefix": "key",
+    "body": "(key \"${1:name}\" ${2:value})",
+    "description": "Associate a key with a value"
+  },
+
+  "key get": {
+    "prefix": "kget",
+    "body": "(key \"${1:name}\")",
+    "description": "Read a key value"
+  },
+
+  "cmd arith": {
+    "prefix": "cmd-arith",
+    "body": "(cmd arith ${1:+} (${2:a} ${3:b}) ${4:result})",
+    "description": "Arithmetic command"
+  },
+
+  "cmd cmp": {
+    "prefix": "cmd-cmp",
+    "body": "(cmd cmp ${1:<} (${2:a} ${3:b}) ${4:flag})",
+    "description": "Comparison command"
+  },
+
+  "cmd logic": {
+    "prefix": "cmd-logic",
+    "body": "(cmd logic ${1:and} (${2:p} ${3:q}) ${4:result})",
+    "description": "Logic command"
+  },
+
+  "if": {
+    "prefix": "if",
+    "body": [
+      "(if ${1:condition}",
+      "\t${2:then}",
+      "\t${3:else})"
+    ],
+    "description": "Conditional"
+  },
+
+  "ctx": {
+    "prefix": "ctx",
+    "body": [
+      "(ctx",
+      "\t((${1:command} (${2:args}) ${3:body}))",
+      "\t(do",
+      "\t\t$0",
+      "\t))"
+    ],
+    "description": "Context with command override"
+  },
+
+  "ctx overload +": {
+    "prefix": "ctx-plus",
+    "body": [
+      "(ctx",
+      "\t((+ (${1:a} ${2:b}) ${3:(* a b)}))",
+      "\t(do",
+      "\t\t$0",
+      "\t))"
+    ],
+    "description": "Context overloading +"
+  },
+
+  "ref direct": {
+    "prefix": "ref-direct",
+    "body": "(ref direct (sel ${1:(i 0)}))",
+    "description": "Direct reference"
+  },
+
+  "ref indirect": {
+    "prefix": "ref-indirect",
+    "body": "(ref indirect (var ${1:name}))",
+    "description": "Indirect reference"
+  },
+
+  "overload C++": {
+    "prefix": "overload",
+    "body": "(overload ${1:command} (C++ \"${2:lib.so}\" \"${3:symbol}\"))",
+    "description": "Overload command with C++ function"
+  },
+
+  "print": {
+    "prefix": "print",
+    "body": "(print ${1:value})",
+    "description": "Print a value"
+  },
+
+  "input": {
+    "prefix": "input",
+    "body": "(input ${1:result} \"${2:prompt: }\")",
+    "description": "Read user input"
+  },
+
+  "factorial pattern": {
+    "prefix": "fact-pattern",
+    "body": [
+      "(ctx",
+      "\t((cmd custom fact (${1:n} res)",
+      "\t\t(do",
+      "\t\t\t(if (<= ${1:n} 1)",
+      "\t\t\t\t(key \"fact-result\" 1)",
+      "\t\t\t\t(do",
+      "\t\t\t\t\t(cmd arith - (${1:n} 1) n1)",
+      "\t\t\t\t\t(fact (n1) sub)",
+      "\t\t\t\t\t(cmd arith * (sub ${1:n}) r)",
+      "\t\t\t\t\t(key \"fact-result\" r)))",
+      "\t\t\t(key \"fact-result\" (key \"fact-result\")))))",
+      "\t(do",
+      "\t\t(fact (${2:5}) result)",
+      "\t\t(print result)))"
+    ],
+    "description": "Recursive factorial pattern"
+  },
+
+  "loop with jump": {
+    "prefix": "loop",
+    "body": [
+      "(do",
+      "\t(key \"${1:i}\" 0)",
+      "\t(label loop_start)",
+      "\t$0",
+      "\t(cmd arith + ((key \"${1:i}\") 1) ${1:i})",
+      "\t(key \"${1:i}\" ${1:i})",
+      "\t(if (< (key \"${1:i}\") ${2:10})",
+      "\t\t(jump loop_start)",
+      "\t\tnil))"
+    ],
+    "description": "Loop using jump and label"
+  },
+
+  "bit-and": {
+    "prefix": "bit-and",
+    "body": "(bit-and ${1:a} ${2:b})",
+    "description": "Bitwise AND"
+  },
+
+  "sin": {
+    "prefix": "sin",
+    "body": "(sin ${1:angle})",
+    "description": "Sine function"
+  },
+
+  "length": {
+    "prefix": "length",
+    "body": "(length ${1:list})",
+    "description": "Length of a list"
+  },
+
+  "type-of": {
+    "prefix": "type-of",
+    "body": "(type-of ${1:value})",
+    "description": "Type of a value"
+  }
+}

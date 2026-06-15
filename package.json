@@ -1,0 +1,137 @@
+{
+  "name": "lisharp-language",
+  "displayName": "lisharp",
+  "description": "Syntax highlighting, snippets and language support for the lisharp language",
+  "version": "1.0.0",
+  "publisher": "lisharp",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Themes"
+  ],
+  "keywords": [
+    "lisharp",
+    "lisp",
+    "interpreter",
+    "functional"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "lisharp",
+        "aliases": ["lisharp", "Lisharp"],
+        "extensions": [".lisharp"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icon.png",
+          "dark": "./icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lisharp",
+        "scopeName": "source.lisharp",
+        "path": "./syntaxes/lisharp.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lisharp",
+        "path": "./snippets/lisharp.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "lisharp Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/lisharp-dark.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[lisharp]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.wordWrap": "on",
+        "editor.autoIndent": "full",
+        "editor.formatOnSave": false,
+        "editor.bracketPairColorization.enabled": true
+      }
+    },
+    "configuration": {
+      "title": "lisharp",
+      "properties": {
+        "lisharp.interpreterPath": {
+          "type": "string",
+          "default": "lisharp",
+          "description": "Path to the lisharp interpreter executable"
+        },
+        "lisharp.enableAutoComplete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable autocomplete suggestions"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "lisharp.runFile",
+        "title": "lisharp: Run Current File",
+        "icon": "$(play)"
+      },
+      {
+        "command": "lisharp.runSelection",
+        "title": "lisharp: Run Selected Expression"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceExtname == .lisharp",
+          "command": "lisharp.runFile",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname == .lisharp",
+          "command": "lisharp.runFile",
+          "group": "lisharp"
+        },
+        {
+          "when": "resourceExtname == .lisharp && editorHasSelection",
+          "command": "lisharp.runSelection",
+          "group": "lisharp"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "lisharp.runFile",
+        "key": "F5",
+        "when": "resourceExtname == .lisharp"
+      },
+      {
+        "command": "lisharp.runSelection",
+        "key": "shift+F5",
+        "when": "resourceExtname == .lisharp && editorHasSelection"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}
