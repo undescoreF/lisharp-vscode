@@ -1,89 +1,98 @@
-# lisharp — Extension VSCode
+# lisharp — VS Code Extension
 
-Extension VSCode officielle pour le langage **lisharp**.
+The **lisharp** extension for Visual Studio Code provides syntax highlighting, snippets, a dedicated theme, and integrated execution commands for `.lisharp` files.
 
-## Fonctionnalités
+## Features
 
-- ✅ **Coloration syntaxique** complète (formes spéciales, opérateurs, fonctions, constantes)
-- ✅ **Snippets** (do, ctx, cmd, if, loops, factorial, overload C++…)
-- ✅ **Thème sombre** dédié "lisharp Dark"
-- ✅ **Auto-fermeture** des parenthèses et guillemets
-- ✅ **Indentation automatique** à l'ouverture de `(`
-- ✅ **Exécuter le fichier** avec `F5` (bouton ▶ dans la barre de titre)
-- ✅ **Exécuter la sélection** avec `Shift+F5`
-- ✅ **Barre de statut** avec bouton ▶ lisharp
+- Complete syntax highlighting (special forms, operators, functions, and constants)
+- Built-in snippets (`do`, `ctx`, `cmd`, `if`, loops, factorial patterns, C++ overloads, and more)
+- Dedicated dark theme: **lisharp Dark**
+- Automatic closing of parentheses and quotation marks
+- Automatic indentation when opening `(`
+- Run the current file with `F5` or the ▶ button in the editor title bar
+- Run the selected code with `Shift+F5`
+- Status bar integration with a dedicated lisharp execution button
 
 ## Installation
 
-### Option A — Installer depuis le fichier `.vsix` (recommandé)
+### Option A — Install from the `.vsix` package (recommended)
 
-```bash
-# Dans VSCode, ouvrir la palette de commandes (Ctrl+Shift+P)
-# → "Extensions: Install from VSIX…"
-# → Choisir le fichier lisharp-language-1.0.0.vsix
+From Visual Studio Code:
+
+```text
+Open the Command Palette (Ctrl+Shift+P)
+→ Extensions: Install from VSIX...
+→ Select the file lisharp-language-1.0.0.vsix
 ```
 
-Ou en ligne de commande :
+Alternatively, install from the command line:
 
 ```bash
 code --install-extension lisharp-language-1.0.0.vsix
 ```
 
-### Option B — Installer en mode développement (sans compiler)
+### Option B — Development installation
+
+Copy the `lisharp-vscode` directory to the VS Code extensions folder.
+
+#### Linux / macOS
 
 ```bash
-# Copier le dossier lisharp-vscode dans le dossier extensions VSCode :
-
-# Linux / macOS
 cp -r lisharp-vscode ~/.vscode/extensions/lisharp-language
+```
 
-# Windows
+#### Windows
+
+```cmd
 xcopy /E lisharp-vscode %USERPROFILE%\.vscode\extensions\lisharp-language\
 ```
 
-Redémarre VSCode. L'extension est active pour tous les fichiers `.lisharp`.
+Restart Visual Studio Code. The extension will then be enabled for all `.lisharp` files.
 
 ## Configuration
 
-Dans `settings.json` :
+Add the following settings to `settings.json`:
 
 ```json
 {
-  "lisharp.interpreterPath": "/chemin/vers/lisharp",
+  "lisharp.interpreterPath": "/path/to/lisharp",
   "lisharp.enableAutoComplete": true
 }
 ```
 
-## Raccourcis clavier
+## Keyboard Shortcuts
 
-| Raccourci     | Action                        |
-|---------------|-------------------------------|
-| `F5`          | Exécuter le fichier courant   |
-| `Shift+F5`    | Exécuter la sélection         |
+| Shortcut | Action |
+|-----------|---------|
+| `F5` | Run the current file |
+| `Shift+F5` | Run the selected code |
 
-## Snippets disponibles
+## Available Snippets
 
-| Préfixe         | Description                        |
-|-----------------|------------------------------------|
-| `do`            | Bloc séquentiel                    |
-| `key`           | Associer une clé                   |
-| `kget`          | Lire une clé                       |
-| `cmd-arith`     | Commande arithmétique              |
-| `cmd-cmp`       | Commande de comparaison            |
-| `cmd-logic`     | Commande logique                   |
-| `if`            | Conditionnelle                     |
-| `ctx`           | Contexte avec surcharge            |
-| `ctx-plus`      | Surcharger + dans un ctx           |
-| `ref-direct`    | Référence directe                  |
-| `ref-indirect`  | Référence indirecte                |
-| `overload`      | Surcharge C++                      |
-| `print`         | Afficher une valeur                |
-| `loop`          | Boucle avec jump/label             |
-| `fact-pattern`  | Patron factorielle récursive       |
-| `sin`, `length`, `type-of`, `bit-and` | Fonctions natives |
+| Prefix | Description |
+|----------|-------------|
+| `do` | Sequential block |
+| `key` | Associate a key |
+| `kget` | Retrieve a key |
+| `cmd-arith` | Arithmetic command |
+| `cmd-cmp` | Comparison command |
+| `cmd-logic` | Logical command |
+| `if` | Conditional expression |
+| `ctx` | Context definition with overload support |
+| `ctx-plus` | Overload the `+` operator inside a context |
+| `ref-direct` | Direct reference |
+| `ref-indirect` | Indirect reference |
+| `overload` | C++ operator overload |
+| `print` | Print a value |
+| `loop` | Loop with jump and label |
+| `fact-pattern` | Recursive factorial pattern |
+| `sin`, `length`, `type-of`, `bit-and` | Built-in functions |
 
-## Thème
+## Theme
 
-Pour activer le thème **lisharp Dark** :
+To enable the **lisharp Dark** theme:
 
-`Ctrl+K Ctrl+T` → choisir **lisharp Dark**
+```text
+Ctrl+K Ctrl+T
+→ Select "lisharp Dark"
+```
